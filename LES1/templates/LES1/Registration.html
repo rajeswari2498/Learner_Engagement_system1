@@ -1,0 +1,35 @@
+{% extends "base2.html" %}
+{% block content %}
+  <div class = "container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-6  mx-auto my-auto">
+          <div class="card">
+            <div class="card-header text-center ">
+                <b>Registration Form</b>
+              </div>
+            <div class="card-body">
+                <form action = "" method ="POST" novalidate >
+                    {% csrf_token %}
+                    <div class ="form-group">
+                      {% for field in form %}
+                      <div class="fieldWrapper">
+                          {{ field.label_tag }} 
+                          {{ field }}
+                          <p class="text-danger">{{ field.errors.as_text }}</p>
+                          
+                      </div>
+                      {% endfor %}            
+                    </div>
+                    {% for error in form.non_field_errors %} 
+                    <p class = "text-danger">{{error}}</p>
+                    {% endfor %}
+                    <div class ="form-group text-center">
+                        <input class ='btn-btn-primary' type ="submit" value ="Register">
+                    </div>   
+                </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
