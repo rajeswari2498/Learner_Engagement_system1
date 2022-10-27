@@ -10,7 +10,7 @@ def passwords_match(x,y):
     return x == y
 class UserForm(forms.Form):
     email_id = forms.EmailField( widget = forms.EmailInput(attrs= {'class':'form-control'}))
-    password = forms.CharField(max_length=12, widget = forms.TextInput(attrs ={'class' : 'form-control'}))
+    password = forms.CharField(label=_("Password"),max_length=12, widget = forms.TextInput(attrs ={'class' : 'form-control'}))
 class RegisterForm(ModelForm):
     class Meta:
         model = UserData
